@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="Settings" title="Settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="SettingsViewController" customModule="SmartBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SmartBox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKy-v3-hHj">
+                                <rect key="frame" x="93" y="44" width="228" height="58.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="48"/>
+                                <color key="textColor" name="Logo"/>
+                                <color key="highlightedColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="n1y-0f-7OE">
+                                <rect key="frame" x="30" y="152.5" width="354" height="164"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="35C-jV-DZe">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Box ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SL-ai-sax">
+                                                <rect key="frame" x="0.0" y="0.0" width="55.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                                <color key="textColor" name="buttons"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="123456" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5I9-nl-ULM">
+                                                <rect key="frame" x="174" y="0.0" width="180" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="mlP-08-Zp9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="boxIdextBoxEdited:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="Vfz-Ya-paN"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="vGE-VG-xA9">
+                                        <rect key="frame" x="0.0" y="47" width="354" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Threshold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cb-cG-Lkj">
+                                                <rect key="frame" x="0.0" y="0.0" width="87.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                                <color key="textColor" name="buttons"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="100%" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="olM-Dh-JvP">
+                                                <rect key="frame" x="174" y="0.0" width="180" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="q1K-0i-QDa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="thresholdTextBoxEdited:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="yOG-0I-uaz"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kfT-Qp-Aw6">
+                                        <rect key="frame" x="0.0" y="94" width="354" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ebay link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ob-HJ-ggY">
+                                                <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                                <color key="textColor" name="buttons"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZW6-r5-0vq">
+                                                <rect key="frame" x="174" y="0.0" width="180" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="lDQ-fG-wUz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="ebayLinkTextBoxEdited:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="Usd-4B-pkD"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="P2Y-qq-zd3">
+                                        <rect key="frame" x="0.0" y="141" width="354" height="23"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eBay account " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4e-sw-SeN">
+                                                <rect key="frame" x="0.0" y="0.0" width="122.5" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                                <color key="textColor" name="buttons"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7I-3E-tjI">
+                                                <rect key="frame" x="174" y="0.0" width="180" height="23"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="HPV-i9-Q5p"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.67531210180000001" green="0.53349900250000004" blue="0.35682171579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled">
+                                                    <color key="baseBackgroundColor" name="buttons"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="ebayAcoountButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3pQ-Rk-DgH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOy-ti-2yQ">
+                                <rect key="frame" x="115" y="784" width="184" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="5Pe-cM-sbm"/>
+                                    <constraint firstAttribute="height" constant="48" id="U3S-Vv-3Vu"/>
+                                </constraints>
+                                <color key="tintColor" red="0.67531210180000001" green="0.53349900250000004" blue="0.35682171579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="submit">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
+                                    <color key="baseBackgroundColor" name="buttons"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="submitButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="GHL-et-TgW"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6kU-Xv-mDp">
+                                <rect key="frame" x="182" y="782.5" width="50" height="50"/>
+                                <color key="tintColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="89j-6i-kwR"/>
+                                    <constraint firstAttribute="width" constant="50" id="e8H-Uu-LJf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="settingsBackground"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="n1y-0f-7OE" secondAttribute="trailing" constant="30" id="633-ym-kPH"/>
+                            <constraint firstItem="eOy-ti-2yQ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="7b8-H7-378"/>
+                            <constraint firstItem="n1y-0f-7OE" firstAttribute="top" secondItem="mKy-v3-hHj" secondAttribute="bottom" constant="50" id="Byr-A2-ero"/>
+                            <constraint firstItem="n1y-0f-7OE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="WAs-E4-Kg7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eOy-ti-2yQ" secondAttribute="bottom" constant="30" id="Wg5-hN-vch"/>
+                            <constraint firstItem="6kU-Xv-mDp" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="i5f-Ul-7v6"/>
+                            <constraint firstItem="mKy-v3-hHj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="lC0-y2-fLT"/>
+                            <constraint firstItem="mKy-v3-hHj" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="r9r-HZ-KMt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="6kU-Xv-mDp" secondAttribute="bottom" constant="29" id="tcz-2v-p2w"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="boxIdLabel" destination="2SL-ai-sax" id="fb4-09-mj8"/>
+                        <outlet property="boxIdTextBox" destination="5I9-nl-ULM" id="mGc-mC-55U"/>
+                        <outlet property="checkmarkSuccess" destination="6kU-Xv-mDp" id="UZV-2K-lO9"/>
+                        <outlet property="ebayAccountButton" destination="n7I-3E-tjI" id="XDB-xe-55A"/>
+                        <outlet property="ebayAccountLabel" destination="N4e-sw-SeN" id="J6M-cI-hdU"/>
+                        <outlet property="ebayLinkLabel" destination="4Ob-HJ-ggY" id="rEU-Mb-rtd"/>
+                        <outlet property="ebayLinkTextBox" destination="ZW6-r5-0vq" id="iCb-jp-2aP"/>
+                        <outlet property="submitButton" destination="eOy-ti-2yQ" id="WkO-xE-jeI"/>
+                        <outlet property="thresholdLabel" destination="3cb-cG-Lkj" id="x00-LU-sr7"/>
+                        <outlet property="thresholdTextBox" destination="olM-Dh-JvP" id="Vww-ue-qnP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="45.535714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="Logo">
+            <color red="0.9179999828338623" green="0.70999997854232788" blue="0.54500001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="buttons">
+            <color red="0.67450980392156867" green="0.53333333333333333" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="settingsBackground">
+            <color red="0.96100002527236938" green="0.9100000262260437" blue="0.85900002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

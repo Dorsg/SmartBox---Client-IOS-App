@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--BoxState-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="BoxState" title="BoxState" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="BoxStateViewController" customModule="SmartBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SmartBox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XK1-ua-FfB">
+                                <rect key="frame" x="93" y="44" width="228" height="58.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="48"/>
+                                <color key="textColor" name="Logo"/>
+                                <color key="highlightedColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxb-vR-d5w">
+                                <rect key="frame" x="87" y="172.5" width="240" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Box ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4z-Ab-D7Z">
+                                        <rect key="frame" x="75.5" y="21" width="89.5" height="37"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
+                                        <color key="textColor" name="TextBoxState"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVV-IL-Iqe">
+                                        <rect key="frame" x="99.5" y="66" width="41" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" name="TextBoxState"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="buttonLogin"/>
+                                <constraints>
+                                    <constraint firstItem="g4z-Ab-D7Z" firstAttribute="top" secondItem="lxb-vR-d5w" secondAttribute="top" constant="21" id="29i-eH-FTc"/>
+                                    <constraint firstItem="WVV-IL-Iqe" firstAttribute="centerX" secondItem="lxb-vR-d5w" secondAttribute="centerX" id="6Ax-vo-oiM"/>
+                                    <constraint firstItem="WVV-IL-Iqe" firstAttribute="top" secondItem="g4z-Ab-D7Z" secondAttribute="bottom" constant="8" symbolic="YES" id="BwD-21-siD"/>
+                                    <constraint firstAttribute="height" constant="110" id="RmF-Ro-wWg"/>
+                                    <constraint firstAttribute="width" constant="240" id="VGx-xE-XJb"/>
+                                    <constraint firstItem="g4z-Ab-D7Z" firstAttribute="centerX" secondItem="lxb-vR-d5w" secondAttribute="centerX" id="ddb-pE-atD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHm-c5-J59">
+                                <rect key="frame" x="87" y="332.5" width="240" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Box's state" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnO-Cx-BSX">
+                                        <rect key="frame" x="43" y="21" width="154.5" height="37"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
+                                        <color key="textColor" name="TextBoxState"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbx-F5-6hi">
+                                        <rect key="frame" x="94" y="66" width="52" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" name="TextBoxState"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="buttonLogin"/>
+                                <constraints>
+                                    <constraint firstItem="Dbx-F5-6hi" firstAttribute="top" secondItem="DnO-Cx-BSX" secondAttribute="bottom" constant="8" symbolic="YES" id="8m2-6h-n17"/>
+                                    <constraint firstItem="DnO-Cx-BSX" firstAttribute="centerX" secondItem="FHm-c5-J59" secondAttribute="centerX" id="TfW-Wh-YPj"/>
+                                    <constraint firstAttribute="height" constant="120" id="ZZD-B3-NLv"/>
+                                    <constraint firstItem="Dbx-F5-6hi" firstAttribute="centerX" secondItem="FHm-c5-J59" secondAttribute="centerX" id="fEF-ri-rst"/>
+                                    <constraint firstAttribute="width" constant="240" id="rpf-jp-xq9"/>
+                                    <constraint firstItem="DnO-Cx-BSX" firstAttribute="top" secondItem="FHm-c5-J59" secondAttribute="top" constant="21" id="ug0-SR-fZd"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KjE-ge-gdG">
+                                <rect key="frame" x="87" y="502.5" width="240" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Box's threshold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2g-J7-5J7">
+                                        <rect key="frame" x="11" y="21" width="218" height="37"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
+                                        <color key="textColor" name="TextBoxState"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4G-Wh-jGF">
+                                        <rect key="frame" x="94.5" y="66" width="51" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" name="TextBoxState"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="buttonLogin"/>
+                                <constraints>
+                                    <constraint firstItem="d2g-J7-5J7" firstAttribute="centerX" secondItem="KjE-ge-gdG" secondAttribute="centerX" id="KCH-Jk-Dk7"/>
+                                    <constraint firstAttribute="width" constant="240" id="Pat-Bz-pmG"/>
+                                    <constraint firstItem="e4G-Wh-jGF" firstAttribute="top" secondItem="d2g-J7-5J7" secondAttribute="bottom" constant="8" symbolic="YES" id="hBe-WC-Enu"/>
+                                    <constraint firstAttribute="height" constant="120" id="nlq-Rn-aSI"/>
+                                    <constraint firstItem="e4G-Wh-jGF" firstAttribute="centerX" secondItem="KjE-ge-gdG" secondAttribute="centerX" id="oWA-z2-0pe"/>
+                                    <constraint firstItem="d2g-J7-5J7" firstAttribute="top" secondItem="KjE-ge-gdG" secondAttribute="top" constant="21" id="vKZ-bY-r8M"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="settingsBackground"/>
+                        <constraints>
+                            <constraint firstItem="XK1-ua-FfB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="6nI-1p-YWC"/>
+                            <constraint firstItem="XK1-ua-FfB" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="9Ow-5L-TwL"/>
+                            <constraint firstItem="FHm-c5-J59" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="FLP-1r-Gq8"/>
+                            <constraint firstItem="lxb-vR-d5w" firstAttribute="top" secondItem="XK1-ua-FfB" secondAttribute="bottom" constant="70" id="Gl4-zC-dRd"/>
+                            <constraint firstItem="KjE-ge-gdG" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="NGT-A1-ai4"/>
+                            <constraint firstItem="FHm-c5-J59" firstAttribute="top" secondItem="lxb-vR-d5w" secondAttribute="bottom" constant="50" id="YVp-DH-0Fv"/>
+                            <constraint firstItem="KjE-ge-gdG" firstAttribute="top" secondItem="FHm-c5-J59" secondAttribute="bottom" constant="50" id="aQj-Qw-aEK"/>
+                            <constraint firstItem="lxb-vR-d5w" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="b0L-iF-DAD"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="boxIdInfo" destination="WVV-IL-Iqe" id="o83-py-txS"/>
+                        <outlet property="boxStateInfo" destination="Dbx-F5-6hi" id="zbS-EJ-Vta"/>
+                        <outlet property="boxThresholdInfo" destination="e4G-Wh-jGF" id="Sfn-M8-nuH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="52"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Logo">
+            <color red="0.9179999828338623" green="0.70999997854232788" blue="0.54500001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextBoxState">
+            <color red="0.72500002384185791" green="0.60399997234344482" blue="0.4309999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="buttonLogin">
+            <color red="0.93699997663497925" green="0.83499997854232788" blue="0.71799999475479126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="settingsBackground">
+            <color red="0.96100002527236938" green="0.9100000262260437" blue="0.85900002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

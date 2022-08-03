@@ -26,7 +26,7 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="n1y-0f-7OE">
-                                <rect key="frame" x="30" y="152.5" width="354" height="164"/>
+                                <rect key="frame" x="30" y="152.5" width="354" height="175"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="35C-jV-DZe">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
@@ -72,11 +72,33 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kfT-Qp-Aw6">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fCi-Ph-8AP">
                                         <rect key="frame" x="0.0" y="94" width="354" height="34"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ebay link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ob-HJ-ggY">
-                                                <rect key="frame" x="0.0" y="0.0" width="77" height="34"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSO-Rl-bxf">
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                                <color key="textColor" name="buttons"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10g" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bMF-Jc-Nqd">
+                                                <rect key="frame" x="174" y="0.0" width="180" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="xYj-DO-h8z"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="thresholdTextBoxEdited:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="WcM-C5-DYb"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kfT-Qp-Aw6">
+                                        <rect key="frame" x="0.0" y="141" width="354" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amazon link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ob-HJ-ggY">
+                                                <rect key="frame" x="0.0" y="0.0" width="105.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                 <color key="textColor" name="buttons"/>
                                                 <nil key="highlightedColor"/>
@@ -92,31 +114,6 @@
                                                     <action selector="ebayLinkTextBoxEdited:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="Usd-4B-pkD"/>
                                                 </connections>
                                             </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="P2Y-qq-zd3">
-                                        <rect key="frame" x="0.0" y="141" width="354" height="23"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eBay account " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4e-sw-SeN">
-                                                <rect key="frame" x="0.0" y="0.0" width="122.5" height="23"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
-                                                <color key="textColor" name="buttons"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7I-3E-tjI">
-                                                <rect key="frame" x="174" y="0.0" width="180" height="23"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="180" id="HPV-i9-Q5p"/>
-                                                </constraints>
-                                                <color key="tintColor" red="0.67531210180000001" green="0.53349900250000004" blue="0.35682171579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled">
-                                                    <color key="baseBackgroundColor" name="buttons"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="ebayAcoountButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3pQ-Rk-DgH"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -165,8 +162,8 @@
                         <outlet property="boxIdLabel" destination="2SL-ai-sax" id="fb4-09-mj8"/>
                         <outlet property="boxIdTextBox" destination="5I9-nl-ULM" id="mGc-mC-55U"/>
                         <outlet property="checkmarkSuccess" destination="6kU-Xv-mDp" id="UZV-2K-lO9"/>
-                        <outlet property="ebayAccountButton" destination="n7I-3E-tjI" id="XDB-xe-55A"/>
-                        <outlet property="ebayAccountLabel" destination="N4e-sw-SeN" id="J6M-cI-hdU"/>
+                        <outlet property="currentWeightLabel" destination="pSO-Rl-bxf" id="rhT-VD-hhD"/>
+                        <outlet property="currentWeightTextBox" destination="bMF-Jc-Nqd" id="qxS-K2-jXP"/>
                         <outlet property="ebayLinkLabel" destination="4Ob-HJ-ggY" id="rEU-Mb-rtd"/>
                         <outlet property="ebayLinkTextBox" destination="ZW6-r5-0vq" id="iCb-jp-2aP"/>
                         <outlet property="submitButton" destination="eOy-ti-2yQ" id="WkO-xE-jeI"/>

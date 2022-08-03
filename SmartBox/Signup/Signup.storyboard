@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1l9-hs-fFr">
-                                <rect key="frame" x="39" y="253" width="300" height="50"/>
+                                <rect key="frame" x="39" y="238" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="BLU-1x-0tM"/>
                                     <constraint firstAttribute="height" constant="50" id="Qi4-ry-nQd"/>
@@ -32,7 +32,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l12-P5-Cgo">
-                                <rect key="frame" x="39" y="333" width="300" height="50"/>
+                                <rect key="frame" x="39" y="318" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="RpT-ET-MG5"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Xu7-P0-cLQ"/>
@@ -53,7 +53,7 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9B-t1-W3t">
-                                <rect key="frame" x="143" y="401" width="128" height="74"/>
+                                <rect key="frame" x="143" y="413" width="128" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="74" id="6mB-1n-F9y"/>
                                 </constraints>
@@ -71,13 +71,19 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" placeholderIntrinsicWidth="130" placeholderIntrinsicHeight="114" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Rqn-kx-ueX">
-                                <rect key="frame" x="171.5" y="428" width="71" height="66"/>
+                                <rect key="frame" x="171.5" y="413" width="71" height="66"/>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="DG4-BD-G2c"/>
                                     <constraint firstAttribute="width" constant="71" id="mcE-vT-QDR"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password should contain 6-16 charaters, and at least one number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEO-vi-8i5">
+                                <rect key="frame" x="39" y="383" width="414" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="settingsBackground"/>
@@ -89,14 +95,18 @@
                             <constraint firstItem="Rqn-kx-ueX" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="LbF-mm-7vg"/>
                             <constraint firstItem="8A4-9R-4uP" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Pl6-wC-tVK"/>
                             <constraint firstItem="Rqn-kx-ueX" firstAttribute="top" secondItem="l12-P5-Cgo" secondAttribute="bottom" constant="45" id="UCi-hY-a8g"/>
+                            <constraint firstItem="oEO-vi-8i5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="39" id="Uf6-2g-gZo"/>
                             <constraint firstItem="l12-P5-Cgo" firstAttribute="top" secondItem="1l9-hs-fFr" secondAttribute="bottom" constant="30" id="Xvl-yE-xYC"/>
-                            <constraint firstItem="1l9-hs-fFr" firstAttribute="top" secondItem="8A4-9R-4uP" secondAttribute="bottom" constant="45" id="dNo-VX-GOf"/>
+                            <constraint firstItem="oEO-vi-8i5" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="39" id="Z6N-Lq-4yv"/>
+                            <constraint firstItem="1l9-hs-fFr" firstAttribute="top" secondItem="8A4-9R-4uP" secondAttribute="bottom" constant="30" id="dNo-VX-GOf"/>
                             <constraint firstItem="l12-P5-Cgo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="39" id="eGY-Jb-Hp9"/>
-                            <constraint firstItem="O9B-t1-W3t" firstAttribute="top" secondItem="l12-P5-Cgo" secondAttribute="bottom" constant="18" id="x9E-e5-pUc"/>
+                            <constraint firstItem="oEO-vi-8i5" firstAttribute="top" secondItem="l12-P5-Cgo" secondAttribute="bottom" constant="15" id="pT1-pv-XD3"/>
+                            <constraint firstItem="O9B-t1-W3t" firstAttribute="top" secondItem="l12-P5-Cgo" secondAttribute="bottom" constant="45" id="x9E-e5-pUc"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loadinAnimation" destination="Rqn-kx-ueX" id="0tv-KA-JxK"/>
+                        <outlet property="passwordInvalid" destination="oEO-vi-8i5" id="thk-Hs-ttm"/>
                         <outlet property="passwordTextbox" destination="l12-P5-Cgo" id="fOr-mT-q6H"/>
                         <outlet property="signupButton" destination="O9B-t1-W3t" id="0jS-06-KxH"/>
                         <outlet property="usernameTextbox" destination="1l9-hs-fFr" id="wWB-z8-y1O"/>
@@ -110,7 +120,7 @@
     <resources>
         <image name="SB_LaunchScreenBackgroungImage" width="1080" height="1920"/>
         <namedColor name="Logo">
-            <color red="0.91764705882352937" green="0.70980392156862748" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.9179999828338623" green="0.70999997854232788" blue="0.54500001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="buttonLogin">
             <color red="0.93699997663497925" green="0.83499997854232788" blue="0.71799999475479126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -119,8 +129,11 @@
             <color red="0.67500001192092896" green="0.53299999237060547" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="settingsBackground">
-            <color red="0.96078431372549022" green="0.90980392156862744" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.96100002527236938" green="0.9100000262260437" blue="0.85900002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -11,6 +11,7 @@ class SettingsViewModel {
     //Titles:
     let boxIdTitleText: String
     let ThresholdTitleText: String
+    let currentWeightTitleText: String
     let ebayProductLinkTitleText: String
     let ebayAccountTitleText: String
     let submitButtonText: String
@@ -21,18 +22,13 @@ class SettingsViewModel {
     var currentWeight: String?
     var productLink: String?
     
-    var ebayAccount: Bool //TODO: Change to ebay account object and set it according to what is needed in order to make a purchase
-    var isAccountConnected: Bool
-    
     init() {
         boxIdTitleText = "Box ID"
         ThresholdTitleText = "Threshold"
+        currentWeightTitleText = "Current Weight"
         ebayProductLinkTitleText = "product link"
         ebayAccountTitleText = "eBay account"
         submitButtonText = "Submit"
-        
-        ebayAccount = false
-        isAccountConnected = false
     }
     
 }

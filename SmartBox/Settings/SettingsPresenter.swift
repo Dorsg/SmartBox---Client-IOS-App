@@ -40,17 +40,11 @@ class SettingsPresenter {
     func setSubmitAvailability() {
         guard let view = view else { return }
         
-        if !view.boxIdTextBox.isEmpty() && !view.thresholdTextBox.isEmpty() && !view.ebayLinkTextBox.isEmpty(), let accountTitle = view.ebayAccountButton.currentTitle, accountTitle != SettingsViewController.titles.accountDisconnected {
+        if !view.boxIdTextBox.hasText && !view.thresholdTextBox.hasText && !view.ebayLinkTextBox.hasText && !view.currentWeightTextBox.hasText {
             view.setSubmitButton(enabled: true)
         } else {
             view.setSubmitButton(enabled: false)
         }
-    }
-    
-    func connectToEbayAccount() -> String? {
-        //TODO: open a webview with ebay sign in url
-        //TODO: Instead of returning the params, change them in the viewModel and trigger update(viewModel: viewModel)
-        return "Agat"
     }
     
     func setAccountButtonText() -> String {
@@ -63,18 +57,15 @@ class SettingsPresenter {
         return text
     }
     
-    func saveInformationBeforeSubmit(boxID: String, threshold: String, productLink: String) {
+    func saveInformationBeforeSubmit(boxID: String, threshold: String, currentWeight: String, productLink: String) {
         var threshold = threshold
         if threshold.hasSuffix("%") {
             threshold.removeLast()
         }
         viewModel.threshold = Int(threshold)
         viewModel.productLink = productLink
-        viewModel.isAccountConnected = true
         viewModel.boxId = boxID
-        //TODO: remove after getting from UI:
-        viewModel.currentWeight = "90"
-//        viewModel.ebayAccount = ebayAccount
+        viewModel.currentWeight = currentWeight
     }
     
     func verifyEbayLink(link: String?) -> Bool {
@@ -106,7 +97,9 @@ class SettingsPresenter {
                 viewModel.threshold, let productLink = viewModel.productLink, let currentWeight = viewModel.currentWeight else { return }
         
         settingsManager.updateSettingsInDB(boxId: boxId, currentWeight: currentWeight, threshold: String(threshold), productLink: productLink, success: {
+            Logger.instance.logEvent(type: .login, info: "updateSettingsInDB success")
             GlobalManager.instance.userManager.getUserInfo(success: {
+                Logger.instance.logEvent(type: .login, info: "getUserInfo success")
                 self.view?.openBoxStateViewController()
             }, failure: { error, response in
                 Logger.instance.logEvent(type: .login, info: "getUserInfo failed")
@@ -140,8 +133,6 @@ class SettingsPresenter {
         viewModel.threshold = nil
         viewModel.productLink = nil
         viewModel.boxId = nil
-        viewModel.isAccountConnected = false
-        viewModel.ebayAccount = false
     }
     
 }

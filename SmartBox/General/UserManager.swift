@@ -17,17 +17,17 @@ protocol UserManagerProtocol {
 
 struct UserInfoResponse: Codable {
     let boxId: String
-    let currentWeight: String? //TODO: Remove the optional after Dor fixes the getInfo !!!!
+    let currentWeight: String
     let boxBaseline: String
-    let weight: Float?
-    let ebayConnection: String?
+    let maxWeight: String
+    let amazonLink: String?
     
     private enum CodingKeys: String, CodingKey {
         case boxId = "box_id"
-        case weight = "weight"
-        case ebayConnection = "ebay_connection"
+        case maxWeight = "max_weight"
+        case amazonLink = "amazon_link"
         case currentWeight = "current_weight"
-        case boxBaseline = "box_baseline"
+        case boxBaseline = "baseline"
     }
 }
 
@@ -69,7 +69,7 @@ class UserManager: UserManagerProtocol {
         
         getUserInfoFromServer(username: userVM.email, password: userVM.password, success: { response in
             Logger.instance.logEvent(type: .userInfo, info: "getUserInfo success")
-            self.userViewModel = UserViewModel(email: userVM.email, password: userVM.password, boxId: response.boxId, ebayConnection: response.ebayConnection, currentWeight: response.currentWeight, boxBaseline: response.boxBaseline)
+            self.userViewModel = UserViewModel(email: userVM.email, password: userVM.password, boxId: response.boxId, productLink: response.amazonLink, maxWeight: response.maxWeight, currentWeight: response.currentWeight, boxBaseline: response.boxBaseline)
             success()
         }) { error, response in
             Logger.instance.logEvent(type: .userInfo, info: "getUserInfo failed")
@@ -91,7 +91,7 @@ class UserManager: UserManagerProtocol {
                     let data = try JSONSerialization.data(withJSONObject: responseObject, options: [])
                     let getInfoResponse = try JSONDecoder().decode(UserInfoResponse.self, from: data)
                     success(getInfoResponse)
-                } catch _ {
+                } catch let exception {
                     Logger.instance.logEvent(type: .userInfo, info: "Exception: failed to decode response")
                     failure(nil, response)
                 }

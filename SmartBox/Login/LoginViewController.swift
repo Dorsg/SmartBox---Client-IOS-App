@@ -13,12 +13,10 @@ protocol AuthenticationErrorDelegate {
 
 class LoginViewController: UIViewController {
 
-//    var authenticatorError: AuthenticationErrorProtocol
     lazy var presenter = LoginPresenter(view: self, viewModel: LoginViewModel(), loginManager: GlobalManager.instance.loginManager)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        authenticatorError.delegate += self
         loadingAnimation.stopAnimating()
     }
     
@@ -53,8 +51,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         loadingAnimation.startAnimating()
         sender.isHidden = true
-        guard let password = passwordTextBox.text else { return }
-        guard let username = userNameTextBox.text else { return }
+        guard let password = passwordTextBox.text, let username = userNameTextBox.text?.lowercased() else { return }
         if !username.isValidEmail() {
             let okAction = UIAlertAction(title: "Let me fix it", style: .default, handler: nil)
             showAlertViewController(title: "Invalid input", message: "Your email looks fishy, are you sure it is correct?", actions: [okAction], animated: true, completion: {
@@ -66,10 +63,25 @@ class LoginViewController: UIViewController {
         presenter.login(with: username, and: password)
     }
     
-    func openBoxStateViewController(){
-        //TODO: Remove the commented boxState's condition after Dor fixes the getInfo !!!!
-//        let boxState = "30"
+    func openSettingsViewController() {
+        let settingsStoryboard = UIStoryboard(name: "Settings", bundle: nil)
+        let settingsVC = settingsStoryboard.instantiateViewController(withIdentifier: "Settings") as! SettingsViewController
+        let presenterSettings = SettingsPresenter(with: settingsVC, settingsManager: GlobalManager.instance.settingsManager)
+        settingsVC.presenter = presenterSettings
+        navigationController?.pushViewController(settingsVC, animated: true)
         
+    }
+    
+    func showMissingConfigurationAlert() {
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            self?.openSettingsViewController()
+        })
+        showAlertViewController(title: "Missing configuration", message: "Your box's information is not configured yet. Please fill the information in order to enjoy our service", actions: [okAction], animated: true, completion: { [weak self] in
+            self?.loadingAnimation.stopAnimating()
+        })
+    }
+    
+    func openBoxStateViewController(){
         Logger.instance.logEvent(type: .login, info: "openBoxStateVC  triggered")
         guard let userVM = GlobalManager.instance.userManager.userViewModel, let boxId = userVM.boxId,
             let threshold = userVM.boxBaseline,

@@ -14,6 +14,7 @@ class SignupViewController: UIViewController {
     @IBOutlet var signupButton: UIButton!
     @IBOutlet var passwordTextbox: UITextField!
     @IBOutlet var usernameTextbox: UITextField!
+    @IBOutlet var passwordInvalid: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,13 @@ class SignupViewController: UIViewController {
         loadinAnimation.startAnimating()
         signupButton.isHidden = true
         
-        guard let password = passwordTextbox.text else { return }
+        guard let password = validatePassword(field: passwordTextbox) else {
+            passwordInvalid.isHidden = false
+            loadinAnimation.stopAnimating()
+            signupButton.isHidden = false
+            return
+        }
+        passwordInvalid.isHidden = true
         guard let username = usernameTextbox.text else { return }
         if !username.isValidEmail() {
             let okAction = UIAlertAction(title: "Let me fix it", style: .default, handler: nil)
@@ -49,6 +56,21 @@ class SignupViewController: UIViewController {
         presenter.signup(username: username, password: password)
     }
     
+    func validatePassword(field: UITextField) -> String? {
+        guard let text:String = field.text else {
+            return nil
+        }
+        /*6-16 charaters, and at least one number*/
+        let RegEx = "^(?=.*\\d)(.+){6,16}$"
+        let Test = NSPredicate(format:"SELF MATCHES%@", RegEx)
+        let isValid = Test.evaluate(with: text)
+
+        if (isValid) {
+            return text
+        }
+
+        return nil
+    }
     
     func openSettingsViewController(){
         let settingsStoryboard = UIStoryboard(name: "Settings", bundle: nil)

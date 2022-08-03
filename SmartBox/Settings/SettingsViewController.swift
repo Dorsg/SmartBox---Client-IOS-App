@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SettingsViewControllerProtocol {
+    func update(viewModel: SettingsViewModel)
+}
+
 class SettingsViewController: UIViewController {
     
     enum titles {
@@ -17,10 +21,10 @@ class SettingsViewController: UIViewController {
     var presenter: SettingsPresenter!
     var ebayUserName: String?
 
-    @IBOutlet var ebayAccountButton: UIButton!
     @IBOutlet var submitButton: UIButton!
     @IBOutlet var boxIdTextBox: UITextField!
     @IBOutlet var thresholdTextBox: UITextField!
+    @IBOutlet var currentWeightTextBox: UITextField!
     @IBOutlet var ebayLinkTextBox: UITextField!
     
     @IBOutlet var checkmarkSuccess: UIImageView!
@@ -28,8 +32,8 @@ class SettingsViewController: UIViewController {
     //Labels:
     @IBOutlet var boxIdLabel: UILabel!
     @IBOutlet var thresholdLabel: UILabel!
+    @IBOutlet var currentWeightLabel: UILabel!
     @IBOutlet var ebayLinkLabel: UILabel!
-    @IBOutlet var ebayAccountLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -40,7 +44,6 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         presenter.attachView(self)
         presenter.setSubmitAvailability()
-        ebayAccountButton.setTitle(presenter.setAccountButtonText(), for: .normal)
         submitButton.isHidden = false
         checkmarkSuccess.isHidden = true
     }
@@ -62,13 +65,6 @@ class SettingsViewController: UIViewController {
         presenter.setSubmitAvailability()
     }
     
-    
-    @IBAction func ebayAcoountButtonTapped(_ sender: UIButton) {
-        ebayUserName = presenter.connectToEbayAccount()
-        sender.setTitle(presenter.setAccountButtonText(), for: .normal)
-        presenter.setSubmitAvailability()
-    }
-    
     @IBAction func submitButtonTapped(_ sender: UIButton) {
         if !presenter.verifyEbayLink(link: ebayLinkTextBox.text) || !presenter.verifyThreshold(threshold: thresholdTextBox.text) {
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -76,19 +72,16 @@ class SettingsViewController: UIViewController {
             return
         }
         
-        guard let boxId = boxIdTextBox.text, let threshold = thresholdTextBox.text, let productLink = ebayLinkTextBox.text else {
+        guard let boxId = boxIdTextBox.text, let threshold = thresholdTextBox.text, let currentWeight = currentWeightTextBox.text, let productLink = ebayLinkTextBox.text else {
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             showAlertViewController(title: "Missing fields", message: "One or more fields are missing!\nPlease fill it before you continue.", actions: [okAction], animated: true, completion: nil)
             return
         }
-        presenter.saveInformationBeforeSubmit(boxID: boxId, threshold: threshold, productLink: productLink)
+        presenter.saveInformationBeforeSubmit(boxID: boxId, threshold: threshold, currentWeight: currentWeight, productLink: productLink)
         
         submitButton.isHidden = true
         checkmarkSuccess.isHidden = false
-        // Delay in order to show  the user a confirmation UI:
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.presenter.submit()
-        }
+        presenter.submit()
     }
     
     func setSubmitButton(enabled: Bool) {
@@ -96,9 +89,6 @@ class SettingsViewController: UIViewController {
     }
     
     func openBoxStateViewController() {
-        //TODO: Remove the commented boxState's condition after Dor fixes the getInfo !!!!
-//        let boxState = "30"
-        
         guard let userVM = GlobalManager.instance.userManager.userViewModel, let boxId = userVM.boxId,
             let threshold = userVM.boxBaseline,
             let currentWeight = userVM.currentWeight
@@ -113,15 +103,15 @@ class SettingsViewController: UIViewController {
         navigationController?.pushViewController(boxStateVC, animated: true)
     }
     
-//}
-// TODO: Return it after figuring out what to do with the protocols
-//extension SettingsViewController: SettingsPresenterView {
+}
+
+extension SettingsViewController: SettingsViewControllerProtocol {
     func update(viewModel: SettingsViewModel) {
         //titles:
         boxIdLabel.text = viewModel.boxIdTitleText
         thresholdLabel.text = viewModel.ThresholdTitleText
+        currentWeightLabel.text = viewModel.currentWeightTitleText
         ebayLinkLabel.text = viewModel.ebayProductLinkTitleText
-        ebayAccountLabel.text = viewModel.ebayAccountTitleText
         submitButton.titleLabel?.text = viewModel.submitButtonText
         
         //values:
@@ -132,6 +122,6 @@ class SettingsViewController: UIViewController {
             thresholdTextBox.text = ""
         }
         ebayLinkTextBox.text = viewModel.productLink
-        ebayAccountButton.titleLabel?.text = viewModel.isAccountConnected ? titles.isConnected : titles.accountDisconnected
+        currentWeightTextBox.text = viewModel.currentWeight
     }
 }

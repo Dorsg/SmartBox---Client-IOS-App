@@ -32,36 +32,42 @@ class LoginPresenter {
     }
     
     func login(with username: String, and password: String) {
-        loginManager.getSignIn(username: username, password: password, success: {
+        loginManager.getSignIn(username: username, password: password, success: { [weak self] in
             Logger.instance.logEvent(type: .login, info: "getSignIn success")
             GlobalManager.instance.userManager.userLoggedIn(email: username, password: password, success: {
-                Logger.instance.logEvent(type: .login, info: "getSignIn success, finished getUserInfo")
-                self.view?.openBoxStateViewController()
-            }, failure: { error, response in
-                Logger.instance.logEvent(type: .login, info: "getSignIn failed")
+                Logger.instance.logEvent(type: .login, info: "userLoggedIn success, finished getUserInfo")
+                self?.view?.openBoxStateViewController()
+            }, failure: { [weak self] error, response in
+                Logger.instance.logEvent(type: .login, info: "userLoggedIn failed")
                 if let responseObject = response {
                     do {
                         let data = try  JSONSerialization.data(withJSONObject: responseObject, options: [])
                         if let response = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any], let err = response["error"] as? String {
-                            self.view?.showLoginFailedAlert(error: err )
+                            self?.view?.showLoginFailedAlert(error: err )
                         }
                     } catch _ {
-                        self.view?.showLoginFailedAlert(error: error?.localizedDescription ?? "unkown error" )
+                        self?.view?.showLoginFailedAlert(error: error?.localizedDescription ?? "unkown error" )
                     }
+                } else {
+                    self?.loginFailedBecauseOfMissingConfiguration()
                 }
             })
-        }, failure: { error, response in
+        }, failure: { [weak self] error, response in
             Logger.instance.logEvent(type: .login, info: "getSignIn failed")
             if let responseObject = response {
                 do {
                     let data = try  JSONSerialization.data(withJSONObject: responseObject, options: [])
                     if let response = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any], let err = response["error"] as? String {
-                        self.view?.showLoginFailedAlert(error: err )
+                        self?.view?.showLoginFailedAlert(error: err )
                     }
                 } catch _ {
-                    self.view?.showLoginFailedAlert(error: error?.localizedDescription ?? "unkown error" )
+                    self?.view?.showLoginFailedAlert(error: error?.localizedDescription ?? "unkown error" )
                 }
             }
         })
+    }
+    
+    private func loginFailedBecauseOfMissingConfiguration() {
+        view?.showMissingConfigurationAlert()
     }
 }

@@ -43,7 +43,7 @@ class BoxStateViewController: UIViewController {
 extension BoxStateViewController {
     func update(viewModel: BoxStateViewModel) {
         boxThresholdInfo.text = viewModel.threshold + "%"
-        boxStateInfo.text = viewModel.currentWeight + "%"
+        boxStateInfo.text = viewModel.currentWeight
         boxIdInfo.text = viewModel.boxID
         view.layoutIfNeeded()
     }
